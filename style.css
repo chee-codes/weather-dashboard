@@ -1,0 +1,13 @@
+.current-weather {
+  padding: 10px;
+  border-left: 1px lightgray solid;
+  border-top: 1px lightgray solid;
+  border-bottom: 1px lightgray solid;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#loc-info span {
+  font-weight: 600;
+  font-size: 26px;
+}
