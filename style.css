@@ -1,4 +1,5 @@
 .current-weather {
+  margin: 20px;
   padding: 10px;
   border-left: 1px lightgray solid;
   border-top: 1px lightgray solid;
@@ -7,7 +8,31 @@
   border-bottom-left-radius: 5px;
 }
 
-#loc-info span {
+#location-info span {
   font-weight: 600;
   font-size: 26px;
+}
+
+#forecast {
+  display: inline-flex;
+  margin: 0px;
+}
+
+#five-day {
+  font-weight: 600;
+  font-size: 26px;
+  padding: 10px;
+}
+
+.card {
+  width: 140px;
+  height: 175px;
+  margin: 10px;
+  background: royalblue;
+  color: white;
+}
+
+.card-body {
+  text-align: left;
+  font-size: 16px;
 }
