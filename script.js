@@ -2,18 +2,17 @@
 $("#button-submit").click((event) => {
   event.preventDefault();
 
-  //Eventually chang this variable to mty string
-  //will take in user input
   var cityName = $("#location-input").val();
+
   var key = "2c227a7f49d0a229e5a38ad3634b45c9";
   var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${key}`;
   var urlQuery2 = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${key}`;
 
   var recentSearch = [];
-
   var searchedLocations = {
     location: cityName,
   };
+
   searchList(recentSearch, cityName);
 
   function searchList(arr, input) {
@@ -21,14 +20,18 @@ $("#button-submit").click((event) => {
     for (var i = 0; i < arr.length; i++) {
       var srchLoc = arr[i];
 
-      var li = $("<li>");
-      li.text(srchLoc);
+      var p = $("<p>");
+      p.addClass("src-cities");
+      p.text(srchLoc);
 
-      $("#search-list").append(li);
+      $("#cities-list").append(p);
     }
   }
 
+  // Setting and getting local storage
   localStorage.setItem("location", JSON.stringify(searchedLocations));
+
+  var recents = JSON.parse(localStorage.getItem("location"));
 
   //
   /*---- ajax call for current weather ----*/
@@ -44,8 +47,11 @@ $("#button-submit").click((event) => {
     var currentTemp = response.main.temp;
     var currentHumid = response.main.humidity;
     var windSpd = response.wind.speed;
+    var wthIcon = response.weather[0].icon;
+    var icon = "https://openweathermap.org/img/w/" + wthIcon + ".png";
 
     $("#location").text(currentLoc);
+    $("#icon1").attr("src", icon);
     $("#temp").text("Temperature: " + currentTemp);
     $("#humid").text("Humidity: " + currentHumid + "%");
     $("#wind-spd").text("Wind Speed: " + windSpd + " MPH");
@@ -70,13 +76,10 @@ $("#button-submit").click((event) => {
         dayArray.push(list[i]);
       }
     }
-
-    // console.log(dayArray[i]);
+    //console.log(dayArray)
   });
 
   $("#location-input").val("");
-
-  var recents = JSON.parse(localStorage.getItem("location"));
 });
 
 function convertUnixTime(time) {

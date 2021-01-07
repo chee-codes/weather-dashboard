@@ -22,17 +22,19 @@
     <title>Weather</title>
   </head>
   <body>
-    <div class="container">
-      <div class="title-div">Weather Dashboard</div>
+    <div class="">
+      <div class="title-div">
+        <h1>Weather Dashboard</h1>
+      </div>
 
       <!-- Main conent container -->
       <div class="container">
         <!-- Content body -->
         <div class="row">
           <!-- Location search -->
-          <div class="col col-4">
-            <span>Seach for a City:</span>
-            <div class="input-group mb-3">
+          <div class="col col-4 search-div">
+            <span>Search for a City:</span>
+            <div class="input-group">
               <input
                 id="location-input"
                 type="text"
@@ -48,7 +50,7 @@
                 </button>
               </div>
             </div>
-            <ul id="search-list"></ul>
+            <div id="cities-list"></div>
           </div>
           <!-- Weather Info -->
           <div class="col col-6">
@@ -58,7 +60,9 @@
                 <section id="location-info">
                   <span id="location">Current Location</span>
                   <span id="loc-date"> Date</span>
-                  <span id="wth-icon"><img src="#" alt="Weather gif" /></span>
+                  <span id="wth-icon"
+                    ><img id="icon1" src="" alt="Weather icon"
+                  /></span>
                 </section>
                 <section id="loc-weather">
                   <p id="temp">Temperature:</p>
