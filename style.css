@@ -58,7 +58,7 @@ body {
   font-size: 26px;
 }
 
-#forecast {
+#forecast-cards {
   display: inline-flex;
   margin: 0px;
 }
@@ -80,4 +80,10 @@ body {
 .card-body {
   text-align: left;
   font-size: 16px;
+}
+
+.uv {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 3px;
 }

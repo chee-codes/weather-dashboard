@@ -60,60 +60,19 @@
                 <section id="location-info">
                   <span id="location">Current Location</span>
                   <span id="loc-date"> Date</span>
-                  <span id="wth-icon"
-                    ><img id="icon1" src="" alt="Weather icon"
-                  /></span>
+                  <span id="wth-icon"><img id="icon1" src="#" alt="" /></span>
                 </section>
                 <section id="loc-weather">
                   <p id="temp">Temperature:</p>
                   <p id="humid">Humidity:</p>
                   <p id="wind-spd">Wind Speed:</p>
-                  <p id="uv">UV Index:</p>
+                  <p id="">UV Index:<span class="uv"></span></p>
                 </section>
               </div>
               <!-- Location 5-Day Forecast -->
               <div class="col col-12">
                 <span id="five-day">5-Day Forecast:</span>
-                <div id="forecast">
-                  <div class="card">
-                    <div class="card-body">
-                      <p class="for-date" data-index="0">Date</p>
-                      <img src="" alt="" class="forecast-icon" />
-                      <p class="for-temp">Temp:</p>
-                      <p class="for-humid">Humidity:</p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-body" data-index="1">
-                      <p class="for-date">Date</p>
-                      <img src="" alt="" class="forecast-icon" />
-                      <p class="for-temp">Temp:</p>
-                      <p class="for-humid">Humidity:</p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-body" data-index="2">
-                      <p class="for-date">Date</p>
-                      <img src="" alt="" class="forecast-icon" />
-                      <p class="for-temp">Temp:</p>
-                      <p class="for-humid">Humidity:</p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-body" data-index="3">
-                      <p class="for-date">Date</p>
-                      <img src="" alt="" class="forecast-icon" />
-                      <p class="for-temp">Temp:</p>
-                      <p class="for-humid">Humidity:</p>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-body" data-index="4">
-                      <p class="for-date">Date</p>
-                      <img src="" alt="" class="forecast-icon" />
-                    </div>
-                  </div>
-                </div>
+                <div id="forecast-cards"> </div>
               </div>
             </div>
           </div>
@@ -135,7 +94,9 @@
 
     <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <!-- Custom Scripts -->
+    <script src="/moment.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
