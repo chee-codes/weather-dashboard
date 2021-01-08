@@ -18,7 +18,7 @@ Cloning repository to local directory
 
 ## Deployed Link
 
-- [Live site link]()
+- [Live site link](https://jbrown827.github.io/weather-dashboard/)
 
 ![alt ext](./assets/images/weather-dash-screenshot.png)
 
