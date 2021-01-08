@@ -72,7 +72,7 @@ $("#button-submit").click((event) => {
     //
 
     $.ajax({
-      url: `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${key}`,
+      url: `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${key}`,
       method: "GET",
     }).then((r) => {
       console.log(r);
