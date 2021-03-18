@@ -60,6 +60,16 @@ body {
   height: 40px;
 }
 
+#location-info {
+  margin: 20px;
+  padding-left: 10px;
+  border-left: 1px lightgray solid;
+  border-top: 1px lightgray solid;
+  border-bottom: 1px lightgray solid;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
 #location-info span {
   font-weight: 600;
   font-size: 26px;
@@ -90,7 +100,7 @@ body {
 }
 
 .uv {
-  padding: 5px;
+  padding: 0px 10px;
   margin: 5px;
   border-radius: 3px;
 }
