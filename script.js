@@ -1,24 +1,22 @@
 $(document).ready(function () {
-  //
-  //
   //? Global Variables
-
   var key = "2c227a7f49d0a229e5a38ad3634b45c9";
-  // var queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${key}`;
-  // var urlQuery2 = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${key}`;
   var cityName = "";
   var cities = [];
 
+  // Initial functiont to populate page
   pageLoad();
 
+  //Saving searched cities in local storge
   function storeCities() {
     localStorage.setItem("cities", JSON.stringify(cities));
   }
 
+  //Click event to handle search submit
   $("#button-submit").click((event) => {
     event.preventDefault();
 
-    cityName = $("#location-input").val().trim();
+    cityName = $("#location-input").val().toLowerCase().trim();
 
     if (cityName === "") {
       alert("Please enter a search location");
@@ -34,9 +32,9 @@ $(document).ready(function () {
     storeCities();
     renderCities();
     getWeather(cityName);
-    // getFiveDay(cityName);
   });
 
+  //Function to run on page load
   function pageLoad() {
     var savedCities = JSON.parse(localStorage.getItem("cities"));
     if (savedCities !== null) {
@@ -46,6 +44,7 @@ $(document).ready(function () {
     getWeather(cities[cities.length - 1]);
   }
 
+  //Function to render searched cities as list on page
   function renderCities() {
     $("#cities-list").empty();
     for (var i = 0; i < cities.length; i++) {
@@ -57,6 +56,7 @@ $(document).ready(function () {
     }
   }
 
+  //Click event to get weather from saved locations in list
   $(document).on("click", ".li-item", function () {
     var location = $(this).attr("data-index");
     getWeather(location);
