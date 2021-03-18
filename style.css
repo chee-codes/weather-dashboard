@@ -5,7 +5,7 @@ body {
 }
 
 .title-div {
-  background: #343a40;
+  background: #37526d;
   color: white;
   text-align: center;
   height: 100px;
@@ -28,24 +28,9 @@ body {
   justify-content: space-between;
 }
 
-/* .form-control {
-  margin-top: 10px;
-} */
-
 #button-submit {
   background: royalblue;
   color: white;
-}
-
-.current-weather {
-  /* margin: 20px; */
-  /* padding: 10px; */
-
-  /* border-left: 1px lightgray solid;
-  border-top: 1px lightgray solid;
-  border-bottom: 1px lightgray solid;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px; */
 }
 
 #cities-list {
@@ -77,7 +62,6 @@ body {
 
 #forecast-cards {
   display: inline-flex;
-  margin: 0px;
 }
 
 #five-day {
@@ -87,16 +71,18 @@ body {
 }
 
 .card {
-  width: 140px;
+  width: 135px;
   height: 175px;
-  margin: 10px;
+  margin: 5px;
   background: royalblue;
   color: white;
 }
 
 .card-body {
-  text-align: left;
-  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .uv {
