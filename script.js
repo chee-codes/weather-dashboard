@@ -25,7 +25,6 @@ $(document).ready(function () {
     renderCities();
     getWeather(cityName);
     // getFiveDay(cityName);
-    console.log(getFiveDay());
   });
 
   function pageLoad() {
@@ -34,6 +33,7 @@ $(document).ready(function () {
       cities = savedCities;
     }
     renderCities();
+    getWeather(cities[cities.length - 1]);
   }
 
   function renderCities() {
@@ -62,7 +62,7 @@ $(document).ready(function () {
         key,
       method: "GET",
     }).then(function (response) {
-      console.log(response);
+      //console.log(response);
 
       var currentLoc = response.name;
       var currentDate = moment().format("M/D/YY");
@@ -85,7 +85,9 @@ $(document).ready(function () {
       var lat = response.coord.lat;
       var lon = response.coord.lon;
 
+      getFiveDay(lat, lon);
       getUvIndex(lat, lon);
+      //console.log(getFiveDay(lat, lon));
     });
   }
 
@@ -104,7 +106,7 @@ $(document).ready(function () {
         key,
       method: "GET",
     }).then((r) => {
-      console.log(r);
+      //console.log(r);
       var uvIndex = r.value;
 
       //rendering the UV index text and bg color
@@ -132,49 +134,35 @@ $(document).ready(function () {
   //
   /*---- ajax call for 5-day forecast ----*/
   //
-  function getFiveDay(city) {
+  function getFiveDay(lat, lon) {
     $.ajax({
-      url:
-        "https://api.openweathermap.org/data/2.5/forecast?q=" +
-        city +
-        "&units=imperial&appid=" +
-        key,
+      url: `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${key}`,
       method: "GET",
-    }).then((val) => {
-      //console.log(val);
+    }).then((res) => {
+      //console.log(res);
 
-      var data = val.list;
+      $("#forecast-cards").empty();
 
-      for (var i = 0; i < data.length; i++) {
-        //local variable declared to convert
-        // unix timestamp to UTC time
-        var time = moment(data[i].dt * 1000).format("H a");
+      for (var i = 1; i < 6; i++) {
+        // console.log(moment(res.daily[i].dt * 1000).format("M/D/YY"));
 
-        if (time === "6 am") {
-          //
-          //local variables to populate the text of the HTML document
-          //convert the date from a unix timestamp
-          var forDate = moment(data[i].dt_txt).format("M/D/YY");
-          var forTemp = data[i].main.temp;
-          var forHumid = data[i].main.humidity;
-          var imgIcon = data[i].weather[0].icon;
-          var forIcon = "https://openweathermap.org/img/w/" + imgIcon + ".png";
+        var forDate = moment(res.daily[i].dt * 1000).format("M/D/YY");
+        var forTemp = res.daily[i].temp.max;
+        var forHumid = res.daily[i].humidity;
+        var imgIcon = res.daily[i].weather[0].icon;
+        var forIcon = "https://openweathermap.org/img/w/" + imgIcon + ".png";
 
-          //variable to populate the card content
-          //using template literal
-          var html = `
-        <div class="card">
-        <div class="card-body">
-          <p class="for-date">${forDate}</p>
-          <img src="${forIcon}" alt="weather icon" class="forecast-icon" />
-          <p class="for-temp">Temp: ${forTemp}</p>
-          <p class="for-humid"> Humidity: ${forHumid}</p>
-        </div>
-        </div>`;
+        var html = `
+          <div class="card">
+            <div class="card-body">
+              <p class="for-date">${forDate}</p>
+              <img src="${forIcon}" alt="weather icon" class="forecast-icon" />
+              <p class="for-temp">Temp: ${forTemp}</p>
+              <p class="for-humid"> Humidity: ${forHumid}</p>
+            </div>
+          </div>`;
 
-          //appending card to the HTML document
-          $("#forecast-cards").append(html);
-        }
+        $("#forecast-cards").append(html);
       }
     });
   }
