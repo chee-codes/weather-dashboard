@@ -1,6 +1,6 @@
 # weather-dashboard
 
-A weather application that allows users to search specific locations for the current weather, along with a 5 day forecast. The searched location is diplayed on the screen with the date and current weather condtions.
+A weather application that allows users to search specific locations for the current weather, along with a 5 day forecast. The searched location is displayed on the screen with the date and current weather condtions.
 
 ## Getting Started
 
@@ -59,8 +59,6 @@ Cloning repository to local directory
 # Authors
 
 - **Jaja Brown**
-  - [Link to Portfolio]()
+  - [Link to Portfolio](https://jbrown827.github.io/portfolio/)
   - [Link to Github](https://github.com/jbrown827)
   - [Link to LinkedIn](https://www.linkedin.com/in/jaja-brown-a42261201/)
-
-## Acknowledgments
