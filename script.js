@@ -12,6 +12,7 @@ $("#button-submit").click((event) => {
   //
 
   var recentSearch = [];
+
   var searchedLocations = {
     location: cityName,
   };

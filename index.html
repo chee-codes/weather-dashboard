@@ -22,62 +22,54 @@
     <title>Weather</title>
   </head>
   <body>
-    <div class="">
-      <div class="title-div">
-        <h1>Weather Dashboard</h1>
-      </div>
+    <div class="title-div">
+      <h1>Weather Dashboard</h1>
+    </div>
 
-      <!-- Main conent container -->
-      <div class="container">
-        <!-- Content body -->
-        <div class="row">
-          <!-- Location search -->
-          <div class="col col-4 search-div">
-            <span>Search for a City:</span>
-            <div class="input-group">
-              <input
-                id="location-input"
-                type="text"
-                class="form-control"
-                placeholder=""
-              />
-              <div class="input-group-append">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="button-submit"
-                  >Button
-                </button>
-              </div>
+    <!-- Main conent container -->
+
+    <div class="container-fluid">
+      <!-- Content body -->
+      <div class="row">
+        <!-- Location search -->
+        <div class="col-4 search-div">
+          <span>Search for a City:</span>
+
+          <div class="input-group">
+            <input id="location-input" type="text" class="form-control" />
+            <div class="input-group-append">
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                id="button-submit"
+                >Search
+              </button>
             </div>
-            <div id="cities-list"></div>
           </div>
-          <!-- Weather Info -->
-          <div class="col col-6">
-            <div class="row">
-              <!-- Location Current Weather -->
-              <div class="col col-12 current-weather">
-                <section id="location-info">
-                  <span id="location">Current Location</span>
-                  <span id="loc-date"> Date</span>
-                  <span id="wth-icon"><img id="icon1" src="#" alt="" /></span>
-                </section>
-                <section id="loc-weather">
-                  <p id="temp">Temperature:</p>
-                  <p id="humid">Humidity:</p>
-                  <p id="wind-spd">Wind Speed:</p>
-                  <p id="">UV Index:<span class="uv"></span></p>
-                </section>
-              </div>
-              <!-- Location 5-Day Forecast -->
-              <div class="col col-12">
-                <span id="five-day">5-Day Forecast:</span>
-                <div id="forecast-cards"> </div>
-              </div>
+          <div id="cities-list"></div>
+        </div>
+
+        <!--  -->
+        <div class="col col-5 current-weather">
+          <div class="row">
+            <div class="col-12" id="location-info">
+              <span id="location">Current Location</span>
+              <span id="loc-date"> Date</span>
+              <span id="wth-icon"><img id="icon1" src="#" alt="" /></span>
+
+              <p id="temp">Temperature:</p>
+              <p id="humid">Humidity:</p>
+              <p id="wind-spd">Wind Speed:</p>
+              <p id="">UV Index:<span class="uv"></span></p>
+            </div>
+            <div class="col col-12">
+              <span id="five-day">5-Day Forecast:</span>
+              <div id="forecast-cards"></div>
             </div>
           </div>
         </div>
       </div>
+      <!-- Weather Info -->
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
@@ -106,3 +98,11 @@
     <script src="script.js"></script>
   </body>
 </html>
+
+<div class="col col-6">
+  <div class="row">
+    <!-- Location Current Weather -->
+
+    <!-- Location 5-Day Forecast -->
+  </div>
+</div>
