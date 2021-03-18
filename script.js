@@ -9,19 +9,7 @@ $(document).ready(function () {
   var cityName = "";
   var cities = [];
 
-  //
-  //
-
-  function renderCities() {
-    $("#cities-list").empty();
-    for (var i = 0; i < cities.length; i++) {
-      var li = $("<li>");
-      li.addClass("city-items");
-      li.attr("data-index", cities[i]);
-      li.text(cities[i]);
-      $("#cities-list").prepend(li);
-    }
-  }
+  pageLoad();
 
   function storeCities() {
     localStorage.setItem("cities", JSON.stringify(cities));
@@ -37,6 +25,31 @@ $(document).ready(function () {
     renderCities();
     getWeather(cityName);
     // getFiveDay(cityName);
+    console.log(getFiveDay());
+  });
+
+  function pageLoad() {
+    var savedCities = JSON.parse(localStorage.getItem("cities"));
+    if (savedCities !== null) {
+      cities = savedCities;
+    }
+    renderCities();
+  }
+
+  function renderCities() {
+    $("#cities-list").empty();
+    for (var i = 0; i < cities.length; i++) {
+      var li = $("<li>");
+      li.addClass("li-item list-group-item");
+      li.attr("data-index", i);
+      li.text(cities[i]);
+      $("#cities-list").prepend(li);
+    }
+  }
+
+  $(document).on("click", ".li-item", function () {
+    var location = $(this).attr("data-index");
+    getWeather(location);
   });
 
   /*---- ajax call for current weather ----*/
@@ -71,8 +84,9 @@ $(document).ready(function () {
       //variables for lat and lon
       var lat = response.coord.lat;
       var lon = response.coord.lon;
+
+      getUvIndex(lat, lon);
     });
-    getUvIndex(lat, lon);
   }
 
   //
@@ -81,7 +95,13 @@ $(document).ready(function () {
 
   function getUvIndex(lat, lon) {
     $.ajax({
-      url: `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${key}`,
+      url:
+        "https://api.openweathermap.org/data/2.5/uvi?lat=" +
+        lat +
+        "&lon=" +
+        lon +
+        "&appid=" +
+        key,
       method: "GET",
     }).then((r) => {
       console.log(r);
