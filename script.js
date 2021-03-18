@@ -17,9 +17,19 @@ $(document).ready(function () {
 
   $("#button-submit").click((event) => {
     event.preventDefault();
+
     cityName = $("#location-input").val().trim();
+
+    if (cityName === "") {
+      alert("Please enter a search location");
+      return;
+    }
     cities.push(cityName);
     $("#location-input").val("");
+
+    if (cities.length >= 6) {
+      cities.shift();
+    }
 
     storeCities();
     renderCities();
